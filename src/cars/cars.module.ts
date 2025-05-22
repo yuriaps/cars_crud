@@ -5,11 +5,7 @@ import { CarsService } from './cars.service';
 import { CarsController } from './cars.controller';
 
 @Module({
-  imports: [
-    MongooseModule.forFeature([
-      { name: Car.name, schema: CarSchema } // 👈 this registers "CarModel"
-    ]),
-  ],
+  imports: [MongooseModule.forFeature([{ name: Car.name, schema: CarSchema }])],
   controllers: [CarsController],
   providers: [CarsService],
 })

@@ -17,7 +17,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
-   ConfigModule.forRoot({
+    ConfigModule.forRoot({
       isGlobal: true, // makes config accessible app-wide
     }),
     MongooseModule.forRootAsync({
@@ -28,7 +28,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         dbName: config.get<string>('MONGO_DB_NAME'),
       }),
     }),
-    CarsModule
+    CarsModule,
   ],
 })
 export class AppModule {}

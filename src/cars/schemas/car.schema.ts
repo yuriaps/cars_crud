@@ -18,12 +18,11 @@ export class Car {
   @Prop({ required: true })
   modelo: string;
 
-  @Prop({ required: true})
+  @Prop({ required: true })
   marca: string;
 
-  @Prop({ required: true})
+  @Prop({ required: true })
   ano: number;
 }
-
 
 export const CarSchema = SchemaFactory.createForClass(Car);

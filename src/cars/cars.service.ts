@@ -1,5 +1,9 @@
 // src/cars/cars.service.ts
-import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  BadRequestException,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Car, CarDocument } from './schemas/car.schema';
 import { Model } from 'mongoose';
@@ -32,7 +36,9 @@ export class CarsService {
     if (!isValidObjectId(id)) {
       throw new BadRequestException('Invalid ID format');
     }
-    const updated = await this.carModel.findByIdAndUpdate(id, updateCarDto, { new: true }).exec();
+    const updated = await this.carModel
+      .findByIdAndUpdate(id, updateCarDto, { new: true })
+      .exec();
     if (!updated) throw new NotFoundException('Car not found');
     return updated;
   }

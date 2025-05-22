@@ -15,7 +15,7 @@ const mockCar = {
   placa: 'XYZ-1234',
 };
 
-const nonExsistentId = "665053b53ffb95b960c7ba40"
+const nonExsistentId = '665053b53ffb95b960c7ba40';
 
 describe('CarsService', () => {
   let service: CarsService;
@@ -120,7 +120,9 @@ describe('CarsService', () => {
       mockCarModel.findByIdAndDelete.mockReturnValue({
         exec: jest.fn().mockResolvedValue(null),
       });
-      await expect(service.remove(nonExsistentId)).rejects.toThrow(NotFoundException);
+      await expect(service.remove(nonExsistentId)).rejects.toThrow(
+        NotFoundException,
+      );
     });
   });
 });
