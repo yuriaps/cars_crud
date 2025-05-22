@@ -29,13 +29,19 @@ export class CarsService {
   }
 
   async update(id: string, updateCarDto: UpdateCarDto): Promise<Car> {
-    const updated = await this.carModel.findByIdAndUpdate(id, updateCarDto, { new: true });
+    if (!isValidObjectId(id)) {
+      throw new BadRequestException('Invalid ID format');
+    }
+    const updated = await this.carModel.findByIdAndUpdate(id, updateCarDto, { new: true }).exec();
     if (!updated) throw new NotFoundException('Car not found');
     return updated;
   }
 
   async remove(id: string): Promise<void> {
-    const result = await this.carModel.findByIdAndDelete(id);
+    if (!isValidObjectId(id)) {
+      throw new BadRequestException('Invalid ID format');
+    }
+    const result = await this.carModel.findByIdAndDelete(id).exec();
     if (!result) throw new NotFoundException('Car not found');
   }
 }
