@@ -24,8 +24,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
+A CRUD Project for a Job Interview
 
 ## Compile and run the project (With Docker-Compose)
 
