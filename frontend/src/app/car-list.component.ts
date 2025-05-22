@@ -9,13 +9,13 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
   template: `
     <ul *ngIf="cars.length">
       <li *ngFor="let car of cars">
-    <strong>{{ car.marca }} {{ car.modelo }}</strong> <br />
-    Ano: {{ car.ano }} <br />
-    Placa: {{ car.placa }} <br />
-    Chassi: {{ car.chassi }} <br />
-    Renavam: {{ car.renavam }}
-    <hr />
-  </li>
+        <strong>{{ car.marca }} {{ car.modelo }}</strong> <br />
+        Ano: {{ car.ano }} <br />
+        Placa: {{ car.placa }} <br />
+        Chassi: {{ car.chassi }} <br />
+        Renavam: {{ car.renavam }}
+        <hr />
+      </li>
     </ul>
   `,
 })
