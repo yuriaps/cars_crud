@@ -9,8 +9,13 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
   template: `
     <ul *ngIf="cars.length">
       <li *ngFor="let car of cars">
-        <strong>{{ car.modelo }}</strong> - {{ car.marca }} - {{ car.ano }} - {{ car.placa }}
-      </li>
+    <strong>{{ car.marca }} {{ car.modelo }}</strong> <br />
+    Ano: {{ car.ano }} <br />
+    Placa: {{ car.placa }} <br />
+    Chassi: {{ car.chassi }} <br />
+    Renavam: {{ car.renavam }}
+    <hr />
+  </li>
     </ul>
   `,
 })
@@ -20,7 +25,7 @@ export class CarListComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<any[]>('http://car-app:3000/car').subscribe((data) => {
+    this.http.get<any[]>('/api/car').subscribe((data) => {
       this.cars = data;
     });
   }
