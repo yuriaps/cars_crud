@@ -26,6 +26,20 @@
 
 A CRUD Project + Frontend for a Job Interview
 
+## Base URL
+All routes are relative to the base URL:  
+**`http://localhost:3000`**
+
+## Available Routes
+
+| Method | Endpoint          | Description                            |
+|--------|-------------------|----------------------------------------|
+| `POST` | `/car`            | Creates a new car record.              |
+| `GET`  | `/car`            | Retrieves a list of all car records.   |
+| `GET`  | `/car/:id`        | Retrieves a single car record by ID.   |
+| `PATCH`| `/car/:id`        | Updates a single car record by ID.     |
+| `DELETE`| `/car/:id`       | Deletes a single car record by ID.     |
+
 ## Compile and run Frontend Angular
 
 ```BASH

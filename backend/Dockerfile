@@ -1,18 +1,16 @@
-# Dockerfile
-FROM node:18-alpine
-
-# Create app directory
+# Build stage
+FROM node:18.20.8 AS builder
 WORKDIR /app
-
-# Install app dependencies
 COPY package*.json ./
 RUN npm install
-
-# Copy source code
 COPY . .
-
-# Build the NestJS app
 RUN npm run build
 
-# Start the app
-CMD ["npm", "run", "start:prod"]
+# Production stage
+FROM node:18.20.8
+WORKDIR /app
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+RUN chmod -R 755 /app/dist
+CMD ["npm", "run", "start"]
